@@ -8,15 +8,21 @@ import android.view.View;
 
 import com.example.dream.R;
 
-public class ChangePassword extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        setContentView(R.layout.activity_login);
     }
 
-    public void goBack(View view) {
-        finish();
+    public void goToRegister(View view) {
+        startActivity(new Intent(view.getContext(), Register.class));
     }
+
+    public void login(View view) {
+        startActivity(new Intent(view.getContext(), Home.class));
+    }
+
+
 }

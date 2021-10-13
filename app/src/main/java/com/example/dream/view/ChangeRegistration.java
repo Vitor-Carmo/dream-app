@@ -80,4 +80,8 @@ public class ChangeRegistration extends AppCompatActivity {
         },year, month, day);
         datePickerDialog.show();
     }
+
+    public void goBack(View view) {
+        finish();
+    }
 }

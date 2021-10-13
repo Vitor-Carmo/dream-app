@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/background"
-        tools:context=".view.Register">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".view.Register">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="30dp"
-            android:paddingTop="60dp">
+            android:paddingTop="45dp">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
-                android:fontFamily="@font/poppins_bold"
-                android:gravity="center_horizontal"
-                android:text="Faça seu cadastro"
-                android:textAlignment="center"
-                android:textColor="@color/primary"
-                android:textSize="26sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginBottom="45dp"
+            android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/imageButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingRight="18dp"
+                    android:onClick="goBack"
+                    android:background="@null"
+                    mask:srcCompat="@drawable/ic_go_back" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Faça seu cadastro"
+                    android:textColor="@color/primary"
+                    android:textSize="22sp" />
+        </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -51,11 +67,11 @@
 
                 <EditText
                     android:id="@+id/nome"
+                    android:fontFamily="@font/roboto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
                     android:ems="10"
-                    android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
@@ -82,8 +98,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
-                    android:ems="10"
                     android:fontFamily="@font/roboto"
+                    android:ems="10"
+                    android:hint="exemple@exemple.com"
+                    android:textColorHint="@color/gray_4"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
@@ -95,7 +113,6 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -112,15 +129,19 @@
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
 
-                    <EditText
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
                         android:id="@+id/telefone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:fontFamily="@font/roboto"
                         android:ems="10"
                         android:inputType="phone"
-                        android:fontFamily="@font/roboto"
                         android:paddingHorizontal="16dp"
+                        mask:allowed_chars="1234567890"
+                        mask:mask="(##) ####-####"
+                        android:hint="1122222222"
+                        android:textColorHint="@color/gray_4"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -140,13 +161,17 @@
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
 
-                    <EditText
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
                         android:id="@+id/celular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
-                        android:ems="10"
                         android:fontFamily="@font/roboto"
+                        android:ems="10"
+                        mask:allowed_chars="1234567890"
+                        mask:mask="(##) #####-####"
+                        android:textColorHint="@color/gray_4"
+                        android:hint="11999999999"
                         android:inputType="phone"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
@@ -176,15 +201,19 @@
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
 
-                    <EditText
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
                         android:id="@+id/cpf"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:inputType="textEmailAddress"
                         android:fontFamily="@font/roboto"
+                        android:ems="10"
+                        android:inputType="number"
                         android:paddingHorizontal="16dp"
+                        mask:allowed_chars="1234567890"
+                        mask:mask="###.###.###-##"
+                        android:hint="99999999999"
+                        android:textColorHint="@color/gray_4"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -204,16 +233,19 @@
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
 
-                    <EditText
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
                         android:id="@+id/rg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:inputType="textEmailAddress"
                         android:fontFamily="@font/roboto"
+                        android:ems="10"
+                        android:inputType="text"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
+                        mask:mask="##.###.###-#"
+                        android:hint="99999999999"
+                        android:textColorHint="@color/gray_4"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -225,11 +257,12 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginEnd="20dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -240,21 +273,17 @@
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
 
-                    <EditText
-                        android:id="@+id/genero"
+                    <Spinner
+                        android:id="@+id/generos"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:paddingHorizontal="16dp"
-                        android:fontFamily="@font/roboto"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
+                        android:layout_height="50dp" />
+
+
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
@@ -268,16 +297,20 @@
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
 
-                    <EditText
-                        android:id="@+id/data_nascimento"
+                    <Button
+                        android:id="@+id/data_nascimento_btn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:inputType="date"
-                        android:paddingHorizontal="16dp"
                         android:fontFamily="@font/roboto"
-                        android:textColor="@color/gray_3"
+                        android:ems="10"
+                        android:paddingHorizontal="16dp"
+                        android:textColor="@color/gray_4"
+                        android:text="dd/mm/yyyy"
+                        android:onClick="setDate"
+                        android:gravity="center_vertical"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textAllCaps="false"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -301,7 +334,8 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginEnd="20dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -312,15 +346,19 @@
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
 
-                    <EditText
+                    <br.com.sapereaude.maskedEditText.MaskedEditText
+                        android:id="@+id/cep"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:fontFamily="@font/roboto"
                         android:ems="10"
                         android:inputType="number"
+                        mask:allowed_chars="1234567890"
+                        mask:mask="#####-###"
                         android:paddingHorizontal="16dp"
-                        android:fontFamily="@font/roboto"
                         android:textColor="@color/gray_3"
+                        android:textColorHint="@color/gray_4"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -340,14 +378,15 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/endereco"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto"
                         android:background="@drawable/ic_background_input"
                         android:ems="10"
                         android:inputType="text"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
-                        android:fontFamily="@font/roboto"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -359,7 +398,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="60dp"
+                    android:layout_width="80dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
                     android:orientation="vertical">
@@ -374,12 +413,13 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/numero"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:fontFamily="@font/roboto"
                         android:ems="10"
                         android:inputType="number"
-                        android:fontFamily="@font/roboto"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
@@ -401,13 +441,14 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/bairro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
                         android:ems="10"
+                        android:fontFamily="@font/roboto"
                         android:inputType="text"
                         android:paddingHorizontal="16dp"
-                        android:fontFamily="@font/roboto"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -441,8 +482,8 @@
                         android:background="@drawable/ic_background_input"
                         android:ems="10"
                         android:inputType="number"
-                        android:paddingHorizontal="16dp"
                         android:fontFamily="@font/roboto"
+                        android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -460,17 +501,11 @@
                         android:text="UF"
                         android:textColor="@color/primary"
                         android:textSize="14sp" />
-
-                    <EditText
+                    <Spinner
+                        android:id="@+id/uf"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:inputType="text"
-                        android:paddingHorizontal="16dp"
-                        android:fontFamily="@font/roboto"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
+                        android:layout_height="50dp" />
                 </LinearLayout>
             </LinearLayout>
 

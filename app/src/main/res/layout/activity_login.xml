@@ -4,42 +4,33 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".view.ChangePassword">
+    tools:context=".view.Login">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="30dp"
-        android:paddingTop="45dp">
+        android:paddingTop="90dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="45dp"
-            android:orientation="horizontal">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@null"
-                android:paddingRight="18dp"
-                android:onClick="goBack"
-                app:srcCompat="@drawable/ic_go_back" />
+            android:src="@drawable/logo_hotel" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_bold"
-                android:text="Alterar sua senha"
-                android:textColor="@color/primary"
-                android:textSize="22sp" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Entre com sua conta"
+            android:textColor="@color/primary"
+            android:textSize="20sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,49 +43,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/poppins"
-                android:text="Senha antiga"
+                android:text="Email"
                 android:textColor="@color/primary"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/nome"
+                android:id="@+id/email"
                 android:fontFamily="@font/roboto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_background_input"
                 android:ems="10"
-                android:inputType="textPassword"
+                android:inputType="textEmailAddress"
                 android:paddingHorizontal="16dp"
                 android:textColor="@color/gray_3"
                 android:textSize="16sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="15dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="Nova senha"
-                android:textColor="@color/primary"
-                android:textSize="14sp" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_background_input"
-                android:fontFamily="@font/roboto"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:paddingHorizontal="16dp"
-                android:textColor="@color/gray_3"
-                android:textSize="16sp" />
-        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -106,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:fontFamily="@font/poppins"
-                android:text="Confirmar nova senha"
+                android:text="Senha"
                 android:textColor="@color/primary"
                 android:textSize="14sp" />
 
@@ -123,17 +88,43 @@
         </LinearLayout>
 
         <Button
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/ic_background_button"
-            android:text="Alterar senha"
-            android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold"
+            android:text="Entrar"
             android:textAllCaps="false"
-            style="?android:attr/borderlessButtonStyle"
-            android:textSize="20sp"
-            android:layout_marginBottom="60dp"
-            />
+            android:onClick="login"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/gray_3"
+                android:textSize="14sp"
+                android:layout_marginRight="5dp"
+                android:text="Ainda não tem uma conta?" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/primary"
+                android:onClick="goToRegister"
+                android:textSize="14sp"
+                android:text="Cadastre-se" />
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>
+
