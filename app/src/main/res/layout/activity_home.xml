@@ -202,6 +202,7 @@
                     android:background="@drawable/card"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:onClick="goToAboutUs"
                     android:layout_marginRight="15dp"
                     android:orientation="vertical"
                     android:layout_marginEnd="15dp">
@@ -210,14 +211,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
-                        app:srcCompat="@drawable/ic_dashboard" />
+                        app:srcCompat="@drawable/ic_peoples" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/secondary"
-                        android:text="Reservas" />
+                        android:text="Sobre nós" />
 
                 </LinearLayout>
 

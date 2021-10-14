@@ -19,4 +19,8 @@ public class Home extends AppCompatActivity {
     public void goToChangeRegistration(View view) {
         startActivity(new Intent(view.getContext(), ChangeRegistration.class));
     }
+
+    public void goToAboutUs(View view) {
+        startActivity(new Intent(view.getContext(), AboutUs.class));
+    }
 }
