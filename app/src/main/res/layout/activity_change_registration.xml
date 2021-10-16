@@ -14,8 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingVertical="45dp"
-        android:paddingHorizontal="30dp"
-        >
+        android:paddingHorizontal="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,6 +23,7 @@
             android:gravity="center"
             android:layout_marginBottom="45dp"
             android:orientation="horizontal">
+
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="wrap_content"
@@ -114,6 +114,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="15dp"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -502,6 +503,7 @@
                     android:text="UF"
                     android:textColor="@color/primary"
                     android:textSize="14sp" />
+
                 <Spinner
                     android:id="@+id/uf"
                     android:layout_width="match_parent"
@@ -522,6 +524,7 @@
             android:textSize="20sp"
             android:layout_marginBottom="15dp"
             android:onClick="goToChangePassword" />
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -531,8 +534,7 @@
             android:fontFamily="@font/poppins_bold"
             android:textAllCaps="false"
             style="?android:attr/borderlessButtonStyle"
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
     </LinearLayout>
 

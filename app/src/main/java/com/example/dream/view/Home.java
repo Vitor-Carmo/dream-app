@@ -15,6 +15,9 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
+    public void goToReservations(View view) {
+        startActivity(new Intent(view.getContext(), Reservations.class));
+    }
 
     public void goToChangeRegistration(View view) {
         startActivity(new Intent(view.getContext(), ChangeRegistration.class));

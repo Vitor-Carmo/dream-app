@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_width="match_parent"
+<ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -115,6 +114,7 @@
                 android:textSize="14sp"
                 android:layout_marginRight="5dp"
                 android:text="Ainda não tem uma conta?" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
