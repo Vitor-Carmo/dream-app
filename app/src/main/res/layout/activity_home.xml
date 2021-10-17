@@ -16,6 +16,7 @@
         android:background="@drawable/ic_header"
         android:gravity="center_vertical"
         android:paddingHorizontal="30dp"
+        android:paddingTop="40dp"
         android:orientation="vertical">
 
         <TextView
@@ -23,9 +24,10 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="26sp"
+            android:lineHeight="30sp"
             android:textColor="@color/white"
             android:layout_marginBottom="15dp"
-            android:text="Pesquise" />
+            android:text="Dream, escolha os melhores quartos luxuosos" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,8 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:hint="Buscar um Horel"
-                android:layout_marginLeft="15dp"
+                android:hint="Pesquise por um Quarto"
                 android:fontFamily="@font/roboto"
                 android:textSize="14sp"
                 android:textColorHint="@color/gray_4"
@@ -90,35 +91,10 @@
                     android:layout_height="150dp"
                     android:background="@drawable/card"
                     android:layout_weight="1"
-                    android:layout_marginRight="7.5dp"
                     android:gravity="center"
                     android:onClick="goToReservations"
-                    android:orientation="vertical"
-                    android:layout_marginEnd="7.5dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        app:srcCompat="@drawable/ic_dashboard" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:textColor="@color/secondary"
-                        android:text="Reservas" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:background="@drawable/card"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:layout_marginLeft="7.5dp"
-                    android:orientation="vertical"
-                    android:layout_marginStart="7.5dp">
+                    android:layout_marginEnd="7.5dp"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -133,24 +109,13 @@
                         android:textColor="@color/secondary"
                         android:text="Fazer Reserva" />
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@drawable/card"
                     android:layout_weight="1"
-                    android:layout_marginRight="7.5dp"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginEnd="7.5dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -167,6 +132,15 @@
                         android:text="Reservas realizadas " />
 
                 </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -175,9 +149,8 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:onClick="goToChangeRegistration"
-                    android:layout_marginLeft="7.5dp"
-                    android:orientation="vertical"
-                    android:layout_marginStart="7.5dp">
+                    android:layout_marginEnd="7.5dp"
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -190,27 +163,17 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/secondary"
-                        android:text="Alterar dados" />
+                        android:text="Alterar seus dados" />
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:weightSum="2"
-                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@drawable/card"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:onClick="goToAboutUs"
-                    android:layout_marginRight="15dp"
-                    android:orientation="vertical"
-                    android:layout_marginEnd="15dp">
+                    android:orientation="vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -226,7 +189,14 @@
                         android:text="Sobre nós" />
 
                 </LinearLayout>
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:weightSum="2"
+                android:orientation="horizontal">
             </LinearLayout>
 
 

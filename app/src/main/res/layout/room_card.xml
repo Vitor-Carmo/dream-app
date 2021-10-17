@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="30dp"
-    android:paddingHorizontal="15dp">
+    android:paddingHorizontal="10dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="253dp"
         android:orientation="vertical"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="8dp"
         app:cardElevation="2dp"
         android:backgroundTint="@color/primary"
         app:cardUseCompatPadding="true">
@@ -32,7 +31,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#90000000">
+            android:background="#60000000">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/room_price"
@@ -67,25 +66,72 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:alpha="0.85"
                     android:fontFamily="@font/poppins_semibold"
                     android:text="Room of the saylor on moon"
                     android:textColor="@color/white"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     app:fontFamily="@font/poppins_semibold" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/room_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:alpha="0.75"
+                    android:alpha="0.9"
                     android:ellipsize="end"
                     android:fontFamily="@font/poppins"
-                    android:maxLines="4"
-                    android:text="café da manha com até 2 pessoas 2 camas de solteiro estacionamento grátis"
+                    android:maxLines="3"
+                    android:text="café da manha com até 2 pessoas 2 cam"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     app:fontFamily="@font/poppins" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+                <ImageButton
+                    android:id="@+id/star1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_star" />
+                <ImageButton
+                    android:id="@+id/star2"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_star" />
+                <ImageButton
+                    android:id="@+id/star3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_star" />
+                <ImageButton
+                    android:id="@+id/star4"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_star" />
+                <ImageButton
+                    android:id="@+id/star5"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@null"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_star" />
+
             </LinearLayout>
 
 

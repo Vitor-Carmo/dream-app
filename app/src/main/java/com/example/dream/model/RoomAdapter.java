@@ -1,6 +1,5 @@
 package com.example.dream.model;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +13,8 @@ import androidx.annotation.Nullable;
 
 import com.example.dream.R;
 import com.example.dream.helpers.ImageLoadTask;
+import com.example.dream.helpers.MoneyFormat;
 
-import java.util.zip.Inflater;
 
 public class RoomAdapter extends ArrayAdapter<String> {
     Context context;
@@ -33,22 +32,40 @@ public class RoomAdapter extends ArrayAdapter<String> {
         this.rImage = image;
     }
 
+    private static class ViewHolder {
+        private ImageView image;
+        private TextView title;
+        private TextView description;
+        private TextView price;
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater layoutInflater = (LayoutInflater) context.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("ViewHolder") View room_list = layoutInflater.inflate(R.layout.room_card, parent, false);
+        ViewHolder mViewHolder;
+        if (convertView == null) {
+            mViewHolder = new ViewHolder();
 
-        ImageView image = room_list.findViewById(R.id.room_image);
-        TextView title = room_list.findViewById(R.id.room_title);
-        TextView description = room_list.findViewById(R.id.room_description);
-        TextView price = room_list.findViewById(R.id.room_price);
+            LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = vi.inflate(R.layout.room_card, parent, false);
 
-        new ImageLoadTask(rImage[position], image).execute();
-        title.setText(rTitle[position]);
-        description.setText(rDescription[position]);
-        price.setText(String.valueOf(rPrice[position]));
 
-        return room_list;
+            mViewHolder.image = convertView.findViewById(R.id.room_image);
+            mViewHolder.title = convertView.findViewById(R.id.room_title);
+            mViewHolder.description = convertView.findViewById(R.id.room_description);
+            mViewHolder.price = convertView.findViewById(R.id.room_price);
+
+            convertView.setTag(mViewHolder);
+        }else {
+            mViewHolder = (ViewHolder) convertView.getTag();
+        }
+
+        new ImageLoadTask(rImage[position], mViewHolder.image).execute();
+        mViewHolder.title.setText(rTitle[position]);
+        mViewHolder.description.setText(rDescription[position]);
+        mViewHolder.price.setText(MoneyFormat.format(rPrice[position]));
+
+        // [...] some changes that must be done at refresh
+        return convertView;
     }
 }
