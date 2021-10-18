@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".view.Reservations"
-    android:focusable="true"
-    android:background="@color/background"
-    android:focusableInTouchMode="true">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,6 +57,7 @@
             android:layout_height="match_parent"
             android:groupIndicator="@null"
             android:divider="@null"
+            android:smoothScrollbar="true"
             android:dividerHeight="0dp" />
     </LinearLayout>
 

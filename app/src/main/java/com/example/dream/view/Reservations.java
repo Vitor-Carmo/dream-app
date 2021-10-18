@@ -3,6 +3,7 @@ package com.example.dream.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -31,13 +32,12 @@ public class Reservations extends AppCompatActivity {
     private void setListView(){
         listview = findViewById(R.id.listview);
         Room room = new Room();
-        RoomAdapter roomAdapter = new RoomAdapter(this, room.title, room.description, room.prices, room.image);
-        listview.setAdapter(roomAdapter);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // on click card
+                startActivity(new Intent(view.getContext(), RoomDetail.class));
             }
         });
+        listview.setAdapter(new RoomAdapter(this, room.title, room.description, room.prices, room.image, room.stars));
     }
 }
