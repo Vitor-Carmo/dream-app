@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dream">
-        <activity android:name=".view.RoomDetail"></activity>
+        <activity android:name=".view.ReservationSummary"></activity>
+        <activity android:name=".view.RoomDetail" />
         <activity android:name=".view.Reservations" />
         <activity android:name=".view.AboutUs" />
         <activity android:name=".view.Home" />

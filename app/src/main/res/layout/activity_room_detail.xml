@@ -247,6 +247,7 @@
                     android:background="@drawable/ic_background_button"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Fazer Reserva"
+                    android:onClick="goToReservationSummary"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="16sp" />

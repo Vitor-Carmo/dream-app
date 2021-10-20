@@ -44,4 +44,7 @@ public class RoomDetail extends AppCompatActivity {
         listview.setAdapter(new CommentAdapter(this, comment.comment, comment.stars));
     }
 
+    public void goToReservationSummary(View view) {
+        startActivity(new Intent(view.getContext(), ReservationSummary.class));
+    }
 }
