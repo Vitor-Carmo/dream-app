@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
@@ -22,6 +23,7 @@ public class RoomDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_room_detail);
+        setComments();
     }
 
 
@@ -35,11 +37,11 @@ public class RoomDetail extends AppCompatActivity {
 
         scrollView.post(() -> scrollView.smoothScrollTo(0, comments.getTop() - 30));
     }
-    /* ListView questionable
+
     private void setComments(){
         ListView listview = findViewById(R.id.listview);
         Comment comment = new Comment();
         listview.setAdapter(new CommentAdapter(this, comment.comment, comment.stars));
     }
-    */
+
 }

@@ -27,12 +27,15 @@
         android:id="@+id/room_detail_scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -272,8 +275,18 @@
                     android:textColor="@color/primary"
                     android:textSize="30sp" />
 
+                <com.example.dream.customLayout.NonScrollListView
+                    android:id="@+id/listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animationCache="false"
+                    android:divider="@null"
+                    android:listSelector="@android:color/transparent"
+                    android:scrollingCache="false"
+                    android:smoothScrollbar="true"/>
+
             </LinearLayout>
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

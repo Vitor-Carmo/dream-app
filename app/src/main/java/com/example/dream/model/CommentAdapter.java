@@ -41,6 +41,8 @@ public class CommentAdapter extends ArrayAdapter<String> {
             convertView = vi.inflate(R.layout.comment, parent, false);
 
             mViewHolder.commentText = convertView.findViewById(R.id.commentText);
+
+            convertView.setScrollContainer(false);
             convertView.setTag(mViewHolder);
         }else {
             mViewHolder = (ViewHolder) convertView.getTag();
