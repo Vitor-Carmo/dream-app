@@ -14,6 +14,8 @@ public class Home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        //startActivity(new Intent(Home.this, Login.class));
     }
     public void goToReservations(View view) {
         startActivity(new Intent(view.getContext(), Reservations.class));
@@ -25,5 +27,13 @@ public class Home extends AppCompatActivity {
 
     public void goToAboutUs(View view) {
         startActivity(new Intent(view.getContext(), AboutUs.class));
+    }
+
+    public void goToReservationsMade(View view) {
+        startActivity(new Intent(view.getContext(), ReservationsMade.class));
+    }
+
+    public void goToSearchRoom(View view) {
+        startActivity(new Intent(view.getContext(), SearchRoom.class));
     }
 }

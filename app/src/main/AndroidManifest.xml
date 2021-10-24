@@ -6,23 +6,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dream">
-        <activity android:name=".view.ReservationSummary"></activity>
+        <activity android:name=".view.SearchRoom" />
+        <activity android:name=".view.ReservationMadeDetail" />
+        <activity android:name=".view.ReservationsMade" />
+        <activity android:name=".view.ReservationSummary" />
         <activity android:name=".view.RoomDetail" />
         <activity android:name=".view.Reservations" />
         <activity android:name=".view.AboutUs" />
-        <activity android:name=".view.Home" />
-        <activity android:name=".view.Login">
+        <activity android:name=".view.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.Login" />
         <activity android:name=".view.ChangePassword" />
         <activity android:name=".view.ChangeRegistration" />
         <activity android:name=".view.Register" />

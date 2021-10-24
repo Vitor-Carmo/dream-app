@@ -62,6 +62,7 @@
             android:background="@drawable/ic_background_button"
             android:fontFamily="@font/poppins_bold"
             android:text="Pesquisar"
+            android:onClick="goToSearchRoom"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp" />
@@ -114,6 +115,7 @@
                     android:layout_height="150dp"
                     android:background="@drawable/card"
                     android:layout_weight="1"
+                    android:onClick="goToReservationsMade"
                     android:gravity="center"
                     android:orientation="vertical">
 
