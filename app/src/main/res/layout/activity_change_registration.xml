@@ -13,15 +13,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingVertical="45dp"
-        android:paddingHorizontal="30dp">
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="45dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:gravity="center"
             android:layout_marginBottom="45dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageButton
@@ -29,8 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:paddingRight="18dp"
                 android:onClick="goBack"
+                android:paddingRight="18dp"
                 mask:srcCompat="@drawable/ic_go_back" />
 
             <TextView
@@ -68,11 +68,11 @@
 
             <EditText
                 android:id="@+id/nome"
-                android:fontFamily="@font/roboto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_background_input"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:inputType="textPersonName"
                 android:paddingHorizontal="16dp"
                 android:textColor="@color/gray_3"
@@ -99,86 +99,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_background_input"
-                android:fontFamily="@font/roboto"
                 android:ems="10"
+                android:fontFamily="@font/roboto"
                 android:hint="exemple@exemple.com"
-                android:textColorHint="@color/gray_4"
                 android:inputType="textEmailAddress"
                 android:paddingHorizontal="16dp"
                 android:textColor="@color/gray_3"
+                android:textColorHint="@color/gray_4"
                 android:textSize="16sp" />
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Celular"
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Telefone"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-
-                <br.com.sapereaude.maskedEditText.MaskedEditText
-                    android:id="@+id/telefone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_background_input"
-                    android:fontFamily="@font/roboto"
-                    android:ems="10"
-                    android:inputType="phone"
-                    android:paddingHorizontal="16dp"
-                    mask:allowed_chars="1234567890"
-                    mask:mask="(##) ####-####"
-                    android:hint="1122222222"
-                    android:textColorHint="@color/gray_4"
-                    android:textColor="@color/gray_3"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/celular"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Celular"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-
-                <br.com.sapereaude.maskedEditText.MaskedEditText
-                    android:id="@+id/celular"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_background_input"
-                    android:fontFamily="@font/roboto"
-                    android:ems="10"
-                    mask:allowed_chars="1234567890"
-                    mask:mask="(##) #####-####"
-                    android:textColorHint="@color/gray_4"
-                    android:hint="11999999999"
-                    android:inputType="phone"
-                    android:paddingHorizontal="16dp"
-                    android:textColor="@color/gray_3"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                android:background="@drawable/ic_background_input"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:hint="11999999999"
+                android:inputType="phone"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/gray_3"
+                android:textColorHint="@color/gray_4"
+                android:textSize="16sp"
+                mask:allowed_chars="1234567890"
+                mask:mask="(##) #####-####" />
         </LinearLayout>
 
         <LinearLayout
@@ -208,16 +169,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
-                    android:fontFamily="@font/roboto"
                     android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:hint="99999999999"
                     android:inputType="number"
                     android:paddingHorizontal="16dp"
-                    mask:allowed_chars="1234567890"
-                    mask:mask="###.###.###-##"
-                    android:hint="99999999999"
-                    android:textColorHint="@color/gray_4"
                     android:textColor="@color/gray_3"
-                    android:textSize="16sp" />
+                    android:textColorHint="@color/gray_4"
+                    android:textSize="16sp"
+                    mask:allowed_chars="1234567890"
+                    mask:mask="###.###.###-##" />
             </LinearLayout>
 
             <LinearLayout
@@ -240,81 +201,49 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
-                    android:fontFamily="@font/roboto"
                     android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:hint="99999999999"
                     android:inputType="text"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
-                    mask:mask="##.###.###-#"
-                    android:hint="99999999999"
                     android:textColorHint="@color/gray_4"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    mask:mask="##.###.###-#" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginBottom="30dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginEnd="20dp">
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Data de nascimento "
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Gênero"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-
-                <Spinner
-                    android:id="@+id/generos"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/ic_background_input"
-                    android:layout_height="50dp" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/data_nascimento_btn"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Data de nascimento "
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/data_nascimento_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_background_input"
-                    android:fontFamily="@font/roboto"
-                    android:ems="10"
-                    android:paddingHorizontal="16dp"
-                    android:textColor="@color/gray_4"
-                    android:text="dd/mm/yyyy"
-                    android:onClick="setDate"
-                    android:gravity="center_vertical"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:textAllCaps="false"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                android:background="@drawable/ic_background_input"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:gravity="center_vertical"
+                android:onClick="setDate"
+                android:paddingHorizontal="16dp"
+                android:text="dd/MM/yyyy"
+                android:textAllCaps="false"
+                android:textColor="@color/gray_4"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <TextView
@@ -335,9 +264,9 @@
             <LinearLayout
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
                 android:layout_marginRight="20dp"
-                android:orientation="vertical"
-                android:layout_marginEnd="20dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -353,15 +282,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
-                    android:fontFamily="@font/roboto"
                     android:ems="10"
+                    android:fontFamily="@font/roboto"
                     android:inputType="number"
-                    mask:allowed_chars="1234567890"
-                    mask:mask="#####-###"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
                     android:textColorHint="@color/gray_4"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    mask:allowed_chars="1234567890"
+                    mask:mask="#####-###" />
             </LinearLayout>
 
             <LinearLayout
@@ -383,9 +312,9 @@
                     android:id="@+id/endereco"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto"
                     android:background="@drawable/ic_background_input"
                     android:ems="10"
+                    android:fontFamily="@font/roboto"
                     android:inputType="text"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
@@ -394,6 +323,7 @@
         </LinearLayout>
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="15dp"
@@ -419,8 +349,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
-                    android:fontFamily="@font/roboto"
                     android:ems="10"
+                    android:fontFamily="@font/roboto"
                     android:inputType="number"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
@@ -456,43 +386,18 @@
             </LinearLayout>
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="15dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
+                android:layout_marginEnd="20dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Cidade"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_background_input"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:fontFamily="@font/roboto"
-                    android:paddingHorizontal="16dp"
-                    android:textColor="@color/gray_3"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
@@ -507,9 +412,60 @@
                 <Spinner
                     android:id="@+id/uf"
                     android:layout_width="match_parent"
-                    android:background="@drawable/ic_background_input"
-                    android:layout_height="50dp" />
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_background_input" />
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Cidade"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/cidade"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_background_input" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Complemento"
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/complemento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_background_input"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/gray_3"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <Button
@@ -535,7 +491,7 @@
             android:textAllCaps="false"
             style="?android:attr/borderlessButtonStyle"
             android:textSize="20sp" />
-
     </LinearLayout>
+
 
 </ScrollView>

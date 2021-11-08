@@ -215,67 +215,35 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginBottom="30dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Data de nascimento "
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Gênero"
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-
-                <Spinner
-                    android:id="@+id/generos"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/ic_background_input" />
-
-
-            </LinearLayout>
-
-            <LinearLayout
+            <Button
+                android:id="@+id/data_nascimento_btn"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="Data de nascimento "
-                    android:textColor="@color/primary"
-                    android:textSize="14sp" />
-
-                <Button
-                    android:id="@+id/data_nascimento_btn"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_background_input"
-                    android:ems="10"
-                    android:fontFamily="@font/roboto"
-                    android:gravity="center_vertical"
-                    android:onClick="setDate"
-                    android:paddingHorizontal="16dp"
-                    android:text="dd/mm/yyyy"
-                    android:textAllCaps="false"
-                    android:textColor="@color/gray_4"
-                    android:textSize="16sp" />
-            </LinearLayout>
+                android:background="@drawable/ic_background_input"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:gravity="center_vertical"
+                android:onClick="setDate"
+                android:paddingHorizontal="16dp"
+                android:text="dd/MM/yyyy"
+                android:textAllCaps="false"
+                android:textColor="@color/gray_4"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <TextView

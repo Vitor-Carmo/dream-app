@@ -7,16 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.dream.R;
+import com.example.dream.constant.DreamAppConstants;
+import com.example.dream.data.SecurityPreferences;
 
 public class Home extends AppCompatActivity {
+    SecurityPreferences mSecurityPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        startActivity(new Intent(Home.this, Login.class));
+        this.mSecurityPreferences = new SecurityPreferences(this);
+        if(mSecurityPreferences.getStoredString(DreamAppConstants.LOGIN_ID_KEY) == null){
+            startActivity(new Intent(Home.this, Login.class));
+            finish();
+        }
     }
+
     public void goToReservations(View view) {
         startActivity(new Intent(view.getContext(), Reservations.class));
     }

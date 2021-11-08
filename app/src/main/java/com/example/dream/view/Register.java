@@ -14,6 +14,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.sql.CallableStatement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -22,6 +27,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.dream.R;
 import com.example.dream.data.ConnectionHelper;
+import com.example.dream.model.Client;
 import com.example.dream.model.SpinnerStateCity;
 
 import org.json.JSONArray;
@@ -31,15 +37,16 @@ import org.json.JSONObject;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Locale;
 
 import br.com.sapereaude.maskedEditText.MaskedEditText;
 
 public class Register extends AppCompatActivity {
     private MaskedEditText celular, cpf, rg, cep;
     private EditText nome, email, endereco, numero, bairro, usuario, password, confirm_password, complemento;
-    private Spinner generos;
     private Button dateBtn;
     private SpinnerStateCity spinnerStateCity;
     private String date;
@@ -66,13 +73,6 @@ public class Register extends AppCompatActivity {
         confirm_password = findViewById(R.id.confirm_password);
         dateBtn = findViewById(R.id.data_nascimento_btn);
         spinnerStateCity = new SpinnerStateCity(this, findViewById(R.id.uf), findViewById(R.id.cidade));
-        setGenres();
-    }
-
-    public void setGenres() {
-        generos = findViewById(R.id.generos);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.generos, R.layout.spinner_dropdown_item);
-        generos.setAdapter(adapter);
     }
 
     public void setDate(View view) {
@@ -84,7 +84,12 @@ public class Register extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                dateBtn.setText(getString(R.string.date_format, dayOfMonth, (month + 1), year));
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(year, month, dayOfMonth);
+
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                String strDate = format.format(calendar.getTime());
+                dateBtn.setText(strDate);
                 date = String.format("%s-%s-%s", year, (month + 1), dayOfMonth);
             }
         }, year, month, day);
@@ -96,57 +101,57 @@ public class Register extends AppCompatActivity {
     }
 
     public void registerUser(View view) {
-        ConnectionHelper connectionHelper = new ConnectionHelper();
-        Connection connect = connectionHelper.connectionClass();
+        if(
+            nome.getText().toString().equals("") ||
+            cpf.getRawText().equals("") ||
+            rg.getText().toString().equals("") ||
+            date == null ||
+            celular.getRawText().equals("")  ||
+            email.getText().toString().equals("") ||
+            spinnerStateCity.getState().equals("") ||
+            spinnerStateCity.getCity().equals("") ||
+            bairro.getText().toString().equals("") ||
+            endereco.getText().toString().equals("") ||
+            numero.getText().toString().equals("") ||
+            usuario.getText().toString().equals("") ||
+            password.getText().toString().equals("")
+        ){
+            Toast.makeText(this, "Por favor, Preencha todos os campos!", Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        String query = String.format("\n" +
-                        "EXEC\t[dbo].[SP_USUARIO_SET]\n" +
-                        "\t\t@ID = NULL,\n" +
-                        "\t\t@NIVEL = 3,\n" +
-                        "\t\t@USUARIO = \"%s\",\n" +
-                        "\t\t@SENHA = \"%s\",\n" +
-                        "\t\t@STATUS = 1;\n" +
-                        "DECLARE @id int\n" +
-                        "\n" +
-                        "SELECT TOP 1 @id = ID FROM TB_USUARIO ORDER BY ID DESC;\n" +
-                        "\n" +
-                        "EXEC SP_HOSPEDE_SET @id, \"%s\", \"%s\", \"%s\", \"%s\", \"+55 %s\", \"%s\";\n" +
-                        "\n" +
-                        "EXEC SP_ENDERECO_SET @id, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", '%s';",
-                usuario.getText(),
-                password.getText(),
-                nome.getText(),
-                cpf.getText(),
-                rg.getRawText(),
-                date,
-                celular.getText(),
-                email.getText(),
-                cep.getText(),
-                spinnerStateCity.getState(),
-                spinnerStateCity.getCity(),
-                bairro.getText(),
-                endereco.getText(),
-                numero.getText(),
-                complemento.getText()
-        );
 
-        Log.e("DATABASE", query);
-        /*
-            while (rs.next()){
-                bairro.setText(rs.getString(2)); // coluna
-            }
-        */
+        if(!(password.getText().toString().equals(confirm_password.getText().toString()))){
+            Toast.makeText(this, "A confirmação da senha não confere.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Client client = new Client();
+
+        client.setUsuario(usuario.getText().toString());
+        client.setSenha(password.getText().toString());
+        client.setNome(nome.getText().toString());
+        client.setCpf(cpf.getRawText());
+        client.setRg(rg.getRawText());
+        client.setData(date);
+        client.setCelular(celular.getRawText());
+        client.setEmail(email.getText().toString());
+        client.setCep(cep.getRawText());
+        client.setEstado(spinnerStateCity.getState());
+        client.setCidade(spinnerStateCity.getCity());
+        client.setBairro(bairro.getText().toString());
+        client.setEndereco(endereco.getText().toString());
+        client.setNumero(numero.getText().toString());
+        client.setComplemento(complemento.getText().toString());
 
         try {
-            if (connect != null) {
-                Statement st = connect.createStatement();
-                st.executeQuery(query);
-            }
+            client.create();
+            Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+            finish();
         } catch (Exception ex) {
             ex.printStackTrace();
             Toast.makeText(this, "Ocorreu algum Erro! Por favor, volte mais tarde", Toast.LENGTH_LONG).show();
         }
-
 
     }
 
