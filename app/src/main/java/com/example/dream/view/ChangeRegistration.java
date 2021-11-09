@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.dream.R;
 import com.example.dream.constant.DreamAppConstants;
@@ -29,22 +30,20 @@ import java.util.Locale;
 import br.com.sapereaude.maskedEditText.MaskedEditText;
 
 public class ChangeRegistration extends AppCompatActivity {
-    private Client client;
-    private SecurityPreferences mSecurityPreferences;
-
     private MaskedEditText celular, cpf, rg, cep;
     private EditText nome, email, endereco, numero, bairro, usuario, complemento;
     private Button dateBtn;
     private SpinnerStateCity spinnerStateCity;
     private String date;
 
+    private SecurityPreferences mSecurityPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_registration);
         Locale.setDefault(new Locale("pt", "BR"));
-
-        this.mSecurityPreferences = new SecurityPreferences(this);
+        mSecurityPreferences = new SecurityPreferences(this);
 
         nome = findViewById(R.id.nome);
         email = findViewById(R.id.email);
@@ -59,9 +58,9 @@ public class ChangeRegistration extends AppCompatActivity {
         complemento = findViewById(R.id.complemento);
         usuario = findViewById(R.id.usuario);
         dateBtn = findViewById(R.id.data_nascimento_btn);
-        spinnerStateCity = new SpinnerStateCity(this, findViewById(R.id.uf), findViewById(R.id.cidade));
 
-        client = new Client();
+
+        Client client = new Client();
 
         try {
             client.read(mSecurityPreferences.getStoredString(DreamAppConstants.LOGIN_ID_KEY));
@@ -75,21 +74,20 @@ public class ChangeRegistration extends AppCompatActivity {
             numero.setText(client.getNumero());
             bairro.setText(client.getBairro());
             complemento.setText(client.getComplemento());
+            usuario.setText(client.getUsuario());
             date = client.getData();
-            this.setInitialDate();
+            spinnerStateCity = new SpinnerStateCity(this, findViewById(R.id.uf), findViewById(R.id.cidade));
+            spinnerStateCity.setValues(client.getEstado(), client.getCidade());
 
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S", Locale.getDefault());
+            Date date = format.parse(client.getData());
+
+            SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            String strDate = format2.format(date);
+            dateBtn.setText(strDate);
         }catch (Exception exception){
             exception.printStackTrace();
         }
-    }
-
-    private void setInitialDate() throws ParseException {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S", Locale.getDefault());
-        Date date = format.parse(client.getData());
-
-        SimpleDateFormat format2 = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        String strDate = format2.format(date);
-        dateBtn.setText(strDate);
     }
 
     public void goToChangePassword(View view) {
@@ -120,5 +118,51 @@ public class ChangeRegistration extends AppCompatActivity {
 
     public void goBack(View view) {
         finish();
+    }
+
+    public void updateUser(View view) {
+        if(
+            nome.getText().toString().equals("") ||
+            cpf.getRawText().equals("") ||
+            rg.getRawText().equals("") ||
+            date == null ||
+            celular.getRawText().equals("")  ||
+            email.getText().toString().equals("") ||
+            spinnerStateCity.getState().equals("") ||
+            spinnerStateCity.getCity().equals("") ||
+            bairro.getText().toString().equals("") ||
+            endereco.getText().toString().equals("") ||
+            numero.getText().toString().equals("") ||
+            usuario.getText().toString().equals("")
+        ){
+            Toast.makeText(this, "Por favor, Preencha todos os campos!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Client client = new Client();
+        client.setUsuario(usuario.getText().toString());
+        client.setNome(nome.getText().toString());
+        client.setCpf(cpf.getRawText());
+        client.setRg(rg.getRawText());
+        client.setData(date);
+        client.setCelular(celular.getRawText());
+        client.setEmail(email.getText().toString());
+        client.setCep(cep.getRawText());
+        client.setEstado(spinnerStateCity.getState());
+        client.setCidade(spinnerStateCity.getCity());
+        client.setBairro(bairro.getText().toString());
+        client.setEndereco(endereco.getText().toString());
+        client.setNumero(numero.getText().toString());
+        client.setComplemento(complemento.getText().toString());
+
+        try {
+            client.updateUser(mSecurityPreferences.getStoredString(DreamAppConstants.LOGIN_ID_KEY));
+            Toast.makeText(this, "Atualizado com sucesso!", Toast.LENGTH_LONG).show();
+            finish();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            Toast.makeText(this, "Ocorreu algum Erro! Por favor, volte mais tarde", Toast.LENGTH_LONG).show();
+        }
+
     }
 }

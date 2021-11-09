@@ -90,7 +90,9 @@ public class Register extends AppCompatActivity {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 String strDate = format.format(calendar.getTime());
                 dateBtn.setText(strDate);
-                date = String.format("%s-%s-%s", year, (month + 1), dayOfMonth);
+
+                SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S", Locale.getDefault());
+                date = format2.format(calendar.getTime());
             }
         }, year, month, day);
         datePickerDialog.show();
@@ -104,7 +106,7 @@ public class Register extends AppCompatActivity {
         if(
             nome.getText().toString().equals("") ||
             cpf.getRawText().equals("") ||
-            rg.getText().toString().equals("") ||
+            rg.getRawText().equals("") ||
             date == null ||
             celular.getRawText().equals("")  ||
             email.getText().toString().equals("") ||

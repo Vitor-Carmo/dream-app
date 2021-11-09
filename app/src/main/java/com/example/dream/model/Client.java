@@ -39,7 +39,6 @@ public class Client {
     }
 
     public void create() throws SQLException {
-
         String query = String.format("\n" +
             "EXEC\t[dbo].[SP_USUARIO_SET]\n" +
             "\t\t@ID = NULL,\n" +
@@ -47,19 +46,21 @@ public class Client {
             "\t\t@USUARIO = \"%s\",\n" +
             "\t\t@SENHA = \"%s\",\n" +
             "\t\t@STATUS = 1;\n" +
-            "DECLARE @id int\n" +
+            "DECLARE @id int, @date datetime\n" +
+            "SET DATEFORMAT ymd;\n" +
+            "SELECT @date = CAST('%s' AS DateTime);"+
             "\n" +
             "SELECT TOP 1 @id = ID FROM TB_USUARIO ORDER BY ID DESC;\n" +
             "\n" +
-            "EXEC SP_HOSPEDE_SET @id, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\";\n" +
+            "EXEC SP_HOSPEDE_SET @id, \"%s\", \"%s\", \"%s\", @date, \"%s\", \"%s\";\n" +
             "\n" +
             "EXEC SP_ENDERECO_SET @id, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", '%s';",
             usuario,
             senha,
+            data,
             nome,
             cpf,
             rg,
-            data,
             celular,
             email,
             cep,
@@ -70,7 +71,8 @@ public class Client {
             numero,
             complemento
         );
-        debugQuery(query);
+        //debugQuery(query);
+
         if (connect != null) {
             Statement st = connect.createStatement();
             st.execute(query);
@@ -124,15 +126,45 @@ public class Client {
         }
     }
 
-    public void updateUser(){
-        String query = "\n" +
+    public void updateUser(String id) throws SQLException {
+        String query = String.format(
             "UPDATE TB_USUARIO SET  \n" +
-            "NIVEL = @NIVEL,  \n" +
-            "USUARIO = @USUARIO,  \n" +
-            "[STATUS] = @STATUS,  \n" +
-            "SENHA = ENCRYPTBYKEY(@CHAVE, @SENHA),  \n" +
+            "USUARIO = N'%s',\n" +
             "DATA_ULT_ALTERACAO = GETDATE()  \n" +
-            "WHERE ID = @ID";
+            "WHERE ID = %s  \n" +
+            "\n" +
+            "DECLARE @date datetime\n" +
+            "SET DATEFORMAT ymd;  \n" +
+            "SELECT @date = CAST('%s' AS DateTime);\n" +
+            "\n" +
+            "EXEC SP_HOSPEDE_SET %s, \"%s\", \"%s\", \"%s\", @date, \"%s\", \"%s\";\n" +
+            "\n" +
+            "EXEC SP_ENDERECO_SET %s, \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\", '%s';",
+            usuario,
+            id,
+            data,
+            id,
+            nome,
+            cpf,
+            rg,
+            celular,
+            email,
+            id,
+            cep,
+            estado,
+            cidade,
+            bairro,
+            endereco,
+            numero,
+            complemento
+         );
+
+        debugQuery(query);
+
+        if (connect != null) {
+            Statement st = connect.createStatement();
+            st.execute(query);
+        }
     }
 
     public void updatePassword(){

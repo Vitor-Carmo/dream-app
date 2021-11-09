@@ -251,6 +251,43 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:fontFamily="@font/poppins_semibold"
+            android:text="Alterar um usuario"
+            android:textColor="@color/primary"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Usuario"
+                android:textColor="@color/primary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_background_input"
+                android:ems="10"
+                android:fontFamily="@font/roboto"
+                android:inputType="textPersonName"
+                android:paddingHorizontal="16dp"
+                android:textColor="@color/gray_3"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Endereço"
             android:textColor="@color/primary"
             android:textSize="20sp" />
@@ -468,6 +505,7 @@
                 android:textSize="16sp" />
         </LinearLayout>
 
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -489,6 +527,7 @@
             android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold"
             android:textAllCaps="false"
+            android:onClick="updateUser"
             style="?android:attr/borderlessButtonStyle"
             android:textSize="20sp" />
     </LinearLayout>

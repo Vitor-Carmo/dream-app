@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // spinner estado cidade ibge
 public class SpinnerStateCity {
@@ -85,6 +86,12 @@ public class SpinnerStateCity {
                         try {
                             statesArray.clear();
                             cityIdArray.clear();
+
+                            if(state != null) {
+                                statesArray.add(state);
+                                cityIdArray.add("-1");
+                            };
+
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject estados = response.getJSONObject(i);
                                 String nome = estados.getString("nome");
@@ -106,6 +113,7 @@ public class SpinnerStateCity {
         });
 
         mRequest.add(request);
+
     }
 
     private void getCityJson(final int position) {
@@ -116,6 +124,9 @@ public class SpinnerStateCity {
                     public void onResponse(JSONArray response) {
                         try {
                             cityArray.clear();
+
+                            if(city != null) cityArray.add(city);
+
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject estados = response.getJSONObject(i);
                                 String nome = estados.getString("nome");
@@ -144,4 +155,11 @@ public class SpinnerStateCity {
     public String getState() {
         return state;
     }
+
+    public void setValues(String state, String city) {
+        this.state = state;
+        this.city = city;
+        getStateJson();
+    }
+
 }
