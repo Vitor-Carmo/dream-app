@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.dream.R;
 import com.example.dream.constant.DreamAppConstants;
@@ -42,5 +43,11 @@ public class Home extends AppCompatActivity {
 
     public void goToSearchRoom(View view) {
         startActivity(new Intent(view.getContext(), SearchRoom.class));
+    }
+
+    public void logout(View view) {
+        mSecurityPreferences.removeAll();
+        startActivity(new Intent(Home.this, Login.class));
+        finish();
     }
 }

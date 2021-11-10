@@ -18,4 +18,8 @@ public class SecurityPreferences {
     public String getStoredString(String key){
         return this.mSharedPreferences.getString(key, null);
     }
+
+    public void removeAll(){
+        this.mSharedPreferences.edit().clear().apply();
+    }
 }

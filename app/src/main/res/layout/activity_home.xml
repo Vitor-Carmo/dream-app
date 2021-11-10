@@ -16,7 +16,7 @@
         android:background="@drawable/ic_header"
         android:gravity="center_vertical"
         android:paddingHorizontal="30dp"
-        android:paddingTop="40dp"
+        android:paddingTop="30dp"
         android:orientation="vertical">
 
         <TextView
@@ -140,9 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="2"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="30dp"
                 android:orientation="horizontal">
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -193,17 +192,21 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageButton
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="8dp"
+                android:gravity="center"
+                android:onClick="logout"
                 android:layout_marginBottom="15dp"
-                android:weightSum="2"
-                android:orientation="horizontal">
-            </LinearLayout>
-
-
+                android:background="@null"
+                app:srcCompat="@drawable/ic_logout" />
         </LinearLayout>
+
+
     </ScrollView>
+
 
 </LinearLayout>
 
