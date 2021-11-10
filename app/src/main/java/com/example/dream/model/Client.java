@@ -100,11 +100,11 @@ public class Client {
                 "INNER JOIN TB_HOSPEDE ON TB_USUARIO.ID = TB_HOSPEDE.ID " +
                 "INNER JOIN  TB_ENDERECO ON TB_ENDERECO.ID = TB_USUARIO.ID " +
                 "WHERE TB_USUARIO.ID = %s", id);
+        debugQuery(query);
 
         if (connect != null) {
             Statement st = connect.createStatement();
             ResultSet rs = st.executeQuery(query);
-            debugQuery(query);
             if(rs.next()) {
                 Log.e("USUARIO", rs.getString(1));
 
@@ -167,15 +167,27 @@ public class Client {
         }
     }
 
-    public void updatePassword(){
-        String query = "\n" +
-                "UPDATE TB_USUARIO SET  \n" +
-                "NIVEL = @NIVEL,  \n" +
-                "USUARIO = @USUARIO,  \n" +
-                "[STATUS] = @STATUS,  \n" +
-                "SENHA = ENCRYPTBYKEY(@CHAVE, @SENHA),  \n" +
-                "DATA_ULT_ALTERACAO = GETDATE()  \n" +
-                "WHERE ID = @ID";
+    public void updatePassword(String id) throws SQLException {
+        String query = String.format(
+            "OPEN SYMMETRIC KEY CHAVE  \n" +
+            "DECRYPTION BY CERTIFICATE CERTIFICADO  \n" +
+            "DECLARE @CHAVE UNIQUEIDENTIFIER = (SELECT KEY_GUID('CHAVE'))\n" +
+            "\n" +
+            "UPDATE TB_USUARIO SET  \n" +
+            "SENHA = ENCRYPTBYKEY(@CHAVE, N'%s'),  \n" +
+            "DATA_ULT_ALTERACAO = GETDATE()\n" +
+            "WHERE ID = %s" +
+            "\n" +
+            "CLOSE SYMMETRIC KEY CHAVE",
+            this.senha,
+            id
+        );
+
+        //debugQuery(query);
+        if (connect != null) {
+            Statement st = connect.createStatement();
+            st.execute(query);
+        }
     }
 
 

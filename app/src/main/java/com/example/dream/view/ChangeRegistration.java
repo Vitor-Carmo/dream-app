@@ -69,7 +69,7 @@ public class ChangeRegistration extends AppCompatActivity {
             celular.setText(client.getCelular());
             cpf.setText(client.getCpf());
             rg.setText(client.getRg());
-            cep.setText(client.getCpf());
+            cep.setText(client.getCep());
             endereco.setText(client.getEndereco());
             numero.setText(client.getNumero());
             bairro.setText(client.getBairro());
@@ -110,7 +110,9 @@ public class ChangeRegistration extends AppCompatActivity {
                 SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
                 String strDate = format.format(calendar.getTime());
                 dateBtn.setText(strDate);
-                date = String.format("%s-%s-%s", year, (month + 1), dayOfMonth);
+
+                SimpleDateFormat format2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S", Locale.getDefault());
+                date = format2.format(calendar.getTime());
             }
         }, year, month, day);
         datePickerDialog.show();
