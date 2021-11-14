@@ -35,6 +35,6 @@ public class ReservationsMade extends AppCompatActivity {
                 startActivity(new Intent(view.getContext(), ReservationMadeDetail.class));
             }
         });
-        listview.setAdapter(new RoomAdapter(this, room.title, room.description, room.prices, room.image, room.stars));
+        //listview.setAdapter(new RoomAdapter(this, room.title, room.description, room.prices, room.image, room.stars));
     }
 }

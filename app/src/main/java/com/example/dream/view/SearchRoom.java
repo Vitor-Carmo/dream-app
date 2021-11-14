@@ -28,8 +28,7 @@ public class SearchRoom extends AppCompatActivity {
 
     private void setListView(){
         listview = findViewById(R.id.listview);
-        Room room = new Room();
         listview.setOnItemClickListener((parent, view, position, id) -> startActivity(new Intent(view.getContext(), RoomDetail.class)));
-        listview.setAdapter(new RoomAdapter(this, room.title, room.description, room.prices, room.image, room.stars));
+        //listview.setAdapter(new RoomAdapter(this, room.title, room.description, room.prices, room.image, room.stars));
     }
 }

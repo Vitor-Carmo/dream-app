@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:focusable="true"
-    android:scrollbars="none"
     android:focusableInTouchMode="true"
-    tools:context=".view.Reservations">
+    android:scrollbars="none"
+    tools:context=".view.ReservationSummary">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,6 +49,7 @@
             android:orientation="vertical"
             android:paddingHorizontal="30dp"
             android:paddingVertical="15dp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -284,6 +285,9 @@
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:clickable="false"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
                     android:textSize="16sp" />
@@ -314,81 +318,48 @@
                     android:hint="exemple@exemple.com"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="16dp"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:clickable="false"
                     android:textColor="@color/gray_3"
                     android:textColorHint="@color/gray_4"
                     android:textSize="16sp" />
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Celular"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Telefone"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <br.com.sapereaude.maskedEditText.MaskedEditText
-                        android:id="@+id/telefone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:hint="1122222222"
-                        android:inputType="phone"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textColorHint="@color/gray_4"
-                        android:textSize="16sp"
-                        mask:allowed_chars="1234567890"
-                        mask:mask="(##) ####-####" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <br.com.sapereaude.maskedEditText.MaskedEditText
+                    android:id="@+id/celular"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Celular"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <br.com.sapereaude.maskedEditText.MaskedEditText
-                        android:id="@+id/celular"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:hint="11999999999"
-                        android:inputType="phone"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textColorHint="@color/gray_4"
-                        android:textSize="16sp"
-                        mask:allowed_chars="1234567890"
-                        mask:mask="(##) #####-####" />
-                </LinearLayout>
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:hint="11999999999"
+                    android:inputType="phone"
+                    android:paddingHorizontal="16dp"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:clickable="false"
+                    android:textColor="@color/gray_3"
+                    android:textColorHint="@color/gray_4"
+                    android:textSize="16sp"
+                    mask:allowed_chars="1234567890"
+                    mask:mask="(##) #####-####" />
             </LinearLayout>
 
             <LinearLayout
@@ -426,6 +397,9 @@
                         android:textColor="@color/gray_3"
                         android:textColorHint="@color/gray_4"
                         android:textSize="16sp"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
                         mask:allowed_chars="1234567890"
                         mask:mask="###.###.###-##" />
                 </LinearLayout>
@@ -455,6 +429,9 @@
                         android:hint="99999999999"
                         android:inputType="text"
                         android:paddingHorizontal="16dp"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
                         android:textColor="@color/gray_3"
                         android:textColorHint="@color/gray_4"
                         android:textSize="16sp"
@@ -464,72 +441,43 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Data de nascimento "
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Gênero"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <Spinner
-                        android:id="@+id/generos"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@drawable/ic_background_input" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
+                <EditText
+                    android:id="@+id/data_nascimento_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="textPersonName"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:clickable="false"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Data de nascimento "
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <Button
-                        android:id="@+id/data_nascimento_btn"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:gravity="center_vertical"
-                        android:paddingHorizontal="16dp"
-                        android:text="dd/mm/yyyy"
-                        android:textAllCaps="false"
-                        android:textColor="@color/gray_4"
-                        android:textSize="16sp" />
-                </LinearLayout>
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="30dp"
                 android:alpha=".1"
                 android:background="@android:color/black" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -570,6 +518,9 @@
                         android:fontFamily="@font/roboto"
                         android:inputType="number"
                         android:paddingHorizontal="16dp"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
                         android:textColor="@color/gray_3"
                         android:textColorHint="@color/gray_4"
                         android:textSize="16sp"
@@ -600,6 +551,9 @@
                         android:ems="10"
                         android:fontFamily="@font/roboto"
                         android:inputType="text"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
@@ -607,6 +561,7 @@
             </LinearLayout>
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="15dp"
@@ -635,6 +590,9 @@
                         android:ems="10"
                         android:fontFamily="@font/roboto"
                         android:inputType="number"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
@@ -664,21 +622,56 @@
                         android:fontFamily="@font/roboto"
                         android:inputType="text"
                         android:paddingHorizontal="16dp"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginBottom="45dp"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/poppins"
+                        android:text="UF"
+                        android:textColor="@color/primary"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/uf"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_background_input"
+                        android:ems="10"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="text"
+                        android:paddingHorizontal="16dp"
+                        android:textColor="@color/gray_3"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -692,49 +685,156 @@
                         android:textSize="14sp" />
 
                     <EditText
+                        android:id="@+id/cidade"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
                         android:ems="10"
                         android:fontFamily="@font/roboto"
-                        android:inputType="number"
+                        android:inputType="text"
+                        android:focusable="false"
+                        android:cursorVisible="false"
+                        android:clickable="false"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="UF"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <Spinner
-                        android:id="@+id/uf"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@drawable/ic_background_input" />
-                </LinearLayout>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Complemento"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/complemento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:focusable="false"
+                    android:cursorVisible="false"
+                    android:clickable="false"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="30dp"
+                android:alpha=".1"
+                android:background="@android:color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Cadastrar acompanhantes"
+                android:textColor="@color/primary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/roboto"
+                android:text="Você pode incluir até 3 acompanhantes"
+                android:textColor="@color/gray_3"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_add_button"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="addGuests"
+                        android:text="+"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/guests"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginBottom="0dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="1"
+                        android:textColor="@color/gray_3"
+                        android:textSize="20sp" />
+
+                    <Button
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/ic_remove_button"
+                        android:fontFamily="@font/poppins"
+                        android:onClick="removeGuests"
+                        android:text="-"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:fontFamily="@font/poppins_bold"
+                        android:gravity="end"
+                        android:text="acompanhantes"
+                        android:textColor="@color/gray_3"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/guestsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
 
             <Button
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/ic_background_button"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Pagamento"
                 android:textAllCaps="false"
-                android:layout_marginBottom="30dp"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 

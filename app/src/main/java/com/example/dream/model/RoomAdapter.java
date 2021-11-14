@@ -19,23 +19,19 @@ import com.example.dream.R;
 import com.example.dream.helpers.ImageLoadTask;
 import com.example.dream.helpers.MoneyFormat;
 
+import java.util.ArrayList;
 
-public class RoomAdapter extends ArrayAdapter<String> {
-    Context context;
-    String[] rTitle;
-    String[] rDescription;
-    double[] rPrice;
-    String[] rImage;
-    int[]  rStar;
 
-    public RoomAdapter(Context c, String[] title, String[] description, double[] price, String[] image, int[] star){
-        super(c, R.layout.room_card, R.id.room_title, title);
+public class RoomAdapter extends ArrayAdapter<Room> {
+    private final Context context;
+    private final  ArrayList<Room> rooms;
+
+
+    public RoomAdapter(Context c,  ArrayList<Room> rooms){
+        super(c, R.layout.room_card, R.id.room_title, rooms);
+
         this.context = c;
-        this.rTitle = title;
-        this.rDescription = description;
-        this.rPrice = price;
-        this.rImage = image;
-        this.rStar = star;
+        this.rooms = rooms;
     }
 
     private static class ViewHolder {
@@ -67,14 +63,16 @@ public class RoomAdapter extends ArrayAdapter<String> {
             mViewHolder = (ViewHolder) convertView.getTag();
         }
 
-        LinearLayout starContainer = convertView.findViewById(R.id.stars);
 
-        addStartsToLayout(context, starContainer, rStar[position]);
+        Room room = rooms.get(position);
 
-        new ImageLoadTask(rImage[position], mViewHolder.image).execute();
-        mViewHolder.title.setText(rTitle[position]);
-        mViewHolder.description.setText(rDescription[position]);
-        mViewHolder.price.setText(MoneyFormat.format(rPrice[position]));
+        //LinearLayout starContainer = convertView.findViewById(R.id.stars);
+        //addStartsToLayout(context, starContainer, rStar[position]);
+
+        new ImageLoadTask(room.getFoto(), mViewHolder.image).execute();
+        mViewHolder.title.setText(room.getNome());
+        mViewHolder.description.setText(room.getDescricao());
+        mViewHolder.price.setText(MoneyFormat.format(room.getValor()));
 
         return convertView;
     }
