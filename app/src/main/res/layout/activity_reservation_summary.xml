@@ -21,6 +21,7 @@
             android:background="@color/black">
 
             <ImageView
+                android:id="@+id/foto"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:alpha="0.9"
@@ -46,6 +47,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
             android:orientation="vertical"
             android:paddingHorizontal="30dp"
             android:paddingVertical="15dp">
@@ -59,193 +61,90 @@
                 android:textColor="@color/primary"
                 android:textSize="20sp" />
 
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="100dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Quarto"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Diárias"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="number"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textColorHint="@color/gray_4"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/quarto"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Acomoda"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="text"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Valor Total"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Check-in"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="number"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <EditText
+                    android:id="@+id/valor_total"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Check-Out"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="text"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Tipos de Pagamentos"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Valor Diário"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="number"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Valor Total"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="text"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                <Spinner
+                    android:id="@+id/tipo_pagamento"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ic_background_input" />
             </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -282,12 +181,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
                     android:ems="10"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
-                    android:focusable="false"
-                    android:cursorVisible="false"
-                    android:clickable="false"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
                     android:textSize="16sp" />
@@ -313,14 +212,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
+                    android:clickable="false"
+                    android:cursorVisible="false"
                     android:ems="10"
+                    android:focusable="false"
                     android:fontFamily="@font/roboto"
                     android:hint="exemple@exemple.com"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="16dp"
-                    android:focusable="false"
-                    android:cursorVisible="false"
-                    android:clickable="false"
                     android:textColor="@color/gray_3"
                     android:textColorHint="@color/gray_4"
                     android:textSize="16sp" />
@@ -347,14 +246,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
+                    android:clickable="false"
+                    android:cursorVisible="false"
                     android:ems="10"
+                    android:focusable="false"
                     android:fontFamily="@font/roboto"
                     android:hint="11999999999"
                     android:inputType="phone"
                     android:paddingHorizontal="16dp"
-                    android:focusable="false"
-                    android:cursorVisible="false"
-                    android:clickable="false"
                     android:textColor="@color/gray_3"
                     android:textColorHint="@color/gray_4"
                     android:textSize="16sp"
@@ -389,7 +288,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:hint="99999999999"
                         android:inputType="number"
@@ -397,9 +299,6 @@
                         android:textColor="@color/gray_3"
                         android:textColorHint="@color/gray_4"
                         android:textSize="16sp"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         mask:allowed_chars="1234567890"
                         mask:mask="###.###.###-##" />
                 </LinearLayout>
@@ -424,14 +323,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:hint="99999999999"
                         android:inputType="text"
                         android:paddingHorizontal="16dp"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         android:textColor="@color/gray_3"
                         android:textColorHint="@color/gray_4"
                         android:textSize="16sp"
@@ -459,12 +358,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
+                    android:clickable="false"
+                    android:cursorVisible="false"
                     android:ems="10"
+                    android:focusable="false"
                     android:fontFamily="@font/roboto"
                     android:inputType="textPersonName"
-                    android:focusable="false"
-                    android:cursorVisible="false"
-                    android:clickable="false"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
                     android:textSize="16sp" />
@@ -514,13 +413,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:inputType="number"
                         android:paddingHorizontal="16dp"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         android:textColor="@color/gray_3"
                         android:textColorHint="@color/gray_4"
                         android:textSize="16sp"
@@ -548,12 +447,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:inputType="text"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
@@ -587,12 +486,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:inputType="number"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
@@ -618,13 +517,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:inputType="text"
                         android:paddingHorizontal="16dp"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
                 </LinearLayout>
@@ -658,14 +557,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:inputType="text"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         android:textSize="16sp" />
                 </LinearLayout>
 
@@ -689,12 +588,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/ic_background_input"
+                        android:clickable="false"
+                        android:cursorVisible="false"
                         android:ems="10"
+                        android:focusable="false"
                         android:fontFamily="@font/roboto"
                         android:inputType="text"
-                        android:focusable="false"
-                        android:cursorVisible="false"
-                        android:clickable="false"
                         android:paddingHorizontal="16dp"
                         android:textColor="@color/gray_3"
                         android:textSize="16sp" />
@@ -721,12 +620,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/ic_background_input"
+                    android:clickable="false"
+                    android:cursorVisible="false"
                     android:ems="10"
+                    android:focusable="false"
                     android:fontFamily="@font/roboto"
                     android:inputType="text"
-                    android:focusable="false"
-                    android:cursorVisible="false"
-                    android:clickable="false"
                     android:paddingHorizontal="16dp"
                     android:textColor="@color/gray_3"
                     android:textSize="16sp" />
@@ -749,6 +648,7 @@
                 android:textSize="20sp" />
 
             <TextView
+                android:id="@+id/limit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
@@ -834,6 +734,7 @@
                 android:background="@drawable/ic_background_button"
                 android:fontFamily="@font/poppins_bold"
                 android:text="Pagamento"
+                android:onClick="pay"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="20sp" />

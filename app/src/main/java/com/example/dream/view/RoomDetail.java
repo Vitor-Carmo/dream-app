@@ -69,6 +69,12 @@ public class RoomDetail extends AppCompatActivity {
     }
 
     public void goToReservationSummary(View view) {
-        startActivity(new Intent(view.getContext(), ReservationSummary.class));
+        Intent intent = new Intent(view.getContext(), ReservationSummary.class);
+
+        Bundle extra = new Bundle();
+        extra.putSerializable(DreamAppConstants.ROOM_DETAIL,  room);
+        intent.putExtra(DreamAppConstants.ROOM_DETAIL, extra);
+
+        startActivity(intent);
     }
 }
