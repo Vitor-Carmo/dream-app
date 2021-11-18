@@ -122,5 +122,87 @@ public class Room implements Serializable {
 
         return null;
     }
+
+    public static ArrayList<Room> searchRooms(String search) throws SQLException {
+        ConnectionHelper connectionHelper = new ConnectionHelper();
+        Connection connect = connectionHelper.connectionClass();
+
+        String query = "SELECT ID, NOME, QTD_HOSPEDE,QTD_CAMA_SOLTEIRO,QTD_CAMA_CASAL,FOTO,DESCRICAO,VALOR FROM TB_QUARTO_TIPO WHERE NOME LIKE '%"+ search +"%'";
+
+        if (connect != null) {
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            ArrayList<Room> rooms = new ArrayList<Room>();
+
+            while(rs.next()) {
+                Room room = new Room();
+                room.setId(rs.getInt(1));
+                room.setNome(rs.getString(2));
+                room.setQtdHospede(rs.getInt(3));
+                room.setQtdCamaSolteiro(rs.getInt(4));
+                room.setQtdCamaCasal(rs.getInt(5));
+                room.setFoto(rs.getString(6));
+                room.setDescricao(rs.getString(7));
+                room.setValor(rs.getDouble(8));
+
+                Log.e("setId", "" + rs.getInt(1));
+                Log.e("setNome", "" + rs.getString(2));
+                Log.e("setQtdHospede", "" + rs.getInt(3));
+                Log.e("setQtdCamaSolteiro", "" + rs.getInt(4));
+                Log.e("setQtdCamaCasal", "" + rs.getInt(5));
+                Log.e("setFoto", "" + rs.getString(6));
+                Log.e("setDescricao", "" + rs.getString(7));
+                Log.e("setValor", "" + rs.getDouble(8));
+
+                //Log.e("id", rooms.toString());
+
+                rooms.add(room);
+            }
+            return rooms;
+        }
+
+        return null;
+    }
+
+    public static ArrayList<Room> myRooms(String id) throws SQLException {
+        ConnectionHelper connectionHelper = new ConnectionHelper();
+        Connection connect = connectionHelper.connectionClass();
+
+        String query = "SELECT TB_QUARTO_TIPO.ID, NOME, QTD_HOSPEDE,QTD_CAMA_SOLTEIRO,QTD_CAMA_CASAL,FOTO,DESCRICAO,VALOR FROM TB_QUARTO_TIPO INNER JOIN TB_RESERVA ON QUARTO = TB_QUARTO_TIPO.ID WHERE HOSPEDE = " + id;
+
+        if (connect != null) {
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            ArrayList<Room> rooms = new ArrayList<Room>();
+
+            while(rs.next()) {
+                Room room = new Room();
+                room.setId(rs.getInt(1));
+                room.setNome(rs.getString(2));
+                room.setQtdHospede(rs.getInt(3));
+                room.setQtdCamaSolteiro(rs.getInt(4));
+                room.setQtdCamaCasal(rs.getInt(5));
+                room.setFoto(rs.getString(6));
+                room.setDescricao(rs.getString(7));
+                room.setValor(rs.getDouble(8));
+
+                Log.e("setId", "" + rs.getInt(1));
+                Log.e("setNome", "" + rs.getString(2));
+                Log.e("setQtdHospede", "" + rs.getInt(3));
+                Log.e("setQtdCamaSolteiro", "" + rs.getInt(4));
+                Log.e("setQtdCamaCasal", "" + rs.getInt(5));
+                Log.e("setFoto", "" + rs.getString(6));
+                Log.e("setDescricao", "" + rs.getString(7));
+                Log.e("setValor", "" + rs.getDouble(8));
+
+                //Log.e("id", rooms.toString());
+
+                rooms.add(room);
+            }
+            return rooms;
+        }
+
+        return null;
+    }
 }
 

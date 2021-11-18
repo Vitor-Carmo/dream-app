@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.dream.R;
@@ -13,6 +14,7 @@ import com.example.dream.data.SecurityPreferences;
 
 public class Home extends AppCompatActivity {
     SecurityPreferences mSecurityPreferences;
+    EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,7 @@ public class Home extends AppCompatActivity {
             startActivity(new Intent(Home.this, Login.class));
             finish();
         }
+        search = findViewById(R.id.search);
     }
 
     public void goToReservations(View view) {
@@ -42,7 +45,11 @@ public class Home extends AppCompatActivity {
     }
 
     public void goToSearchRoom(View view) {
-        startActivity(new Intent(view.getContext(), SearchRoom.class));
+        Intent intent = new Intent(view.getContext(), SearchRoom.class);
+        Bundle extra = new Bundle();
+        extra.putSerializable(DreamAppConstants.SEARCH_KEY,  search.getText().toString());
+        intent.putExtra(DreamAppConstants.SEARCH_KEY, extra);
+        startActivity(intent);
     }
 
     public void logout(View view) {

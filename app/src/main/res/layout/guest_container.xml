@@ -35,5 +35,5 @@
         android:textSize="16sp"
         mask:allowed_chars="1234567890"
         mask:mask="###.###.###-##"
-        />
+    />
 </LinearLayout>

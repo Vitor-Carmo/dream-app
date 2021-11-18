@@ -3,6 +3,7 @@ package com.example.dream.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -87,7 +88,7 @@ public class ReservationSummary extends AppCompatActivity {
             cidade = findViewById(R.id.cidade);
             estado = findViewById(R.id.uf);
             date = findViewById(R.id.data_nascimento_btn);
-            limit =findViewById(R.id.limit);
+            limit = findViewById(R.id.limit);
 
             quarto.setText(room.getNome());
             new ImageLoadTask(room.getFoto(), foto).execute();
@@ -128,7 +129,7 @@ public class ReservationSummary extends AppCompatActivity {
             String strDate = format2.format(dateF);
             date.setText(strDate);
 
-        }  catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             Log.e("Erro", ex.getMessage());
             Toast.makeText(this, "Ocorreu algum Erro! Por favor, volte mais tarde", Toast.LENGTH_LONG).show();
@@ -156,7 +157,7 @@ public class ReservationSummary extends AppCompatActivity {
     }
 
     private void addGuestContainer(int numberGuests) {
-        limit.setText(String.format(Locale.getDefault(),"Você pode incluir até %d acompanhantes", room.getQtdHospede()));
+        limit.setText(String.format(Locale.getDefault(), "Você pode incluir até %d acompanhantes", room.getQtdHospede()));
 
         LinearLayout layout = (LinearLayout) findViewById(R.id.guestsContainer);
         layout.removeAllViews();
@@ -168,32 +169,55 @@ public class ReservationSummary extends AppCompatActivity {
     }
 
     public void pay(View view) {
-        Reservation reservation = new Reservation();
-        companions = getCompanionsValues();
+        try {
 
-        reservation.setHospede(mSecurityPreferences.getStoredString(DreamAppConstants.LOGIN_ID_KEY));
-        reservation.setQtd_acompanhante(numberGuests);
-        reservation.setQuarto(room.getId());
-        reservation.setTipo_pagamento(paymentType.getId());
-        reservation.setTotal(room.getValor());
-        reservation.setCompanions(companions);
+            Reservation reservation = new Reservation();
 
-        reservation.create();
+            try {
+                companions = getCompanionsValues();
+            }catch (Exception ex){
+                ex.printStackTrace();
+                Toast.makeText(this, "Por favor, Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            reservation.setHospede(mSecurityPreferences.getStoredString(DreamAppConstants.LOGIN_ID_KEY));
+            reservation.setQtd_acompanhante(numberGuests);
+            reservation.setQuarto(room.getId());
+            reservation.setTipo_pagamento(paymentType.getId());
+            reservation.setTotal(room.getValor());
+            reservation.setCompanions(companions);
+            reservation.create();
+
+            Toast.makeText(this, "Reserva feita com sucesso!", Toast.LENGTH_LONG).show();
+
+            startActivity(new Intent(this, Home.class));
+            finish();
+        } catch (Exception ex) {
+            Log.e("Erro", ex.getMessage());
+            ex.printStackTrace();
+            Toast.makeText(this, "Ocorreu algum Erro! Por favor, volte mais tarde", Toast.LENGTH_LONG).show();
+        }
+
     }
 
 
-    private ArrayList<Companion> getCompanionsValues(){
+    private ArrayList<Companion> getCompanionsValues() throws Exception {
         LinearLayout layout = (LinearLayout) findViewById(R.id.guestsContainer);
         int count = layout.getChildCount();
         View v = null;
         ArrayList<Companion> companions = new ArrayList<Companion>();
-        for(int i=0; i<count; i++) {
+        for (int i = 0; i < count; i++) {
             Companion companion = new Companion();
             v = layout.getChildAt(i);
             EditText nome;
             MaskedEditText cpf;
             nome = v.findViewById(R.id.nome);
             cpf = v.findViewById(R.id.cpf);
+
+            if(nome.getText().toString().equals("") || cpf.getRawText().equals("") ){
+                throw new Exception("Preencha todos os inputs!");
+            }
 
             companion.setNome(nome.getText().toString());
             companion.setCpf(cpf.getRawText());

@@ -2,6 +2,11 @@ package com.example.dream.model;
 
 import android.util.Log;
 
+import com.example.dream.data.ConnectionHelper;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Reservation {
@@ -9,9 +14,14 @@ public class Reservation {
     private int qtd_acompanhante, quarto;
     private double total;
     private ArrayList<Companion> companions;
+    private final Connection connect;
 
+    public Reservation() {
+        ConnectionHelper connectionHelper = new ConnectionHelper();
+        this.connect = connectionHelper.connectionClass();
+    }
 
-    public void create(){
+    public void create() throws SQLException {
         String query = String.format(
                 "EXEC\t[dbo].[SP_RESERVA_SET]\n" +
                 "\t\t@HOSPEDE = %s,\n" +
@@ -32,7 +42,11 @@ public class Reservation {
 
 
         Log.e("Query", query);
-        Companion.setCompanion(companions);
+        if (connect != null) {
+            Statement st = connect.createStatement();
+            st.execute(query);
+            Companion.setCompanion(companions);
+        }
     }
 
     public ArrayList<Companion> getCompanions() {
