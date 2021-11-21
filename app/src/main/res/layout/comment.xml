@@ -6,11 +6,12 @@
     android:paddingBottom="30dp"
     android:orientation="vertical">
     <LinearLayout
+        android:id="@+id/starContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:orientation="horizontal">
-
+<!--
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +46,8 @@
             android:layout_marginEnd="5dp"
             android:background="@null"
             app:srcCompat="@drawable/ic_star_20" />
+
+            -->
     </LinearLayout>
 
     <TextView

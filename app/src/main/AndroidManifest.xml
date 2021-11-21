@@ -9,9 +9,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_logo"
         android:label="@string/app_name"
+        android:windowSoftInputMode="adjustResize|stateVisible"
         android:roundIcon="@mipmap/ic_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Dream">
+        <activity android:name=".view.RateActivity" />
         <activity android:name=".view.SearchRoom" />
         <activity android:name=".view.ReservationMadeDetail" />
         <activity android:name=".view.ReservationsMade" />
@@ -22,6 +24,7 @@
         <activity android:name=".view.Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

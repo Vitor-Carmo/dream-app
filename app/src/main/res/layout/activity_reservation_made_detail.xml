@@ -21,6 +21,7 @@
             android:background="@color/black">
 
             <ImageView
+                android:id="@+id/foto"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:alpha="0.9"
@@ -61,193 +62,165 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="100dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Quarto"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Diárias"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="none"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textColorHint="@color/gray_4"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/quarto"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Acomoda"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="none"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Valor Total"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Check-in"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="none"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <EditText
+                    android:id="@+id/valor_total"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Check-Out"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="none"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="30dp">
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Quantidade de hospedes"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Valor Diário"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="none"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <EditText
+                    android:id="@+id/qtd_hospedes"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:fontFamily="@font/poppins"
-                        android:text="Valor Total"
-                        android:textColor="@color/primary"
-                        android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="15dp"
+                android:orientation="vertical">
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_background_input"
-                        android:ems="10"
-                        android:fontFamily="@font/roboto"
-                        android:inputType="none"
-                        android:paddingHorizontal="16dp"
-                        android:textColor="@color/gray_3"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Quantidade camas de solteiro"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/qtd_cama_solteiros"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Quantidade camas de casal"
+                    android:textColor="@color/primary"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/qtd_cama_casal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_background_input"
+                    android:ems="10"
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:focusable="false"
+                    android:fontFamily="@font/roboto"
+                    android:inputType="text"
+                    android:paddingHorizontal="16dp"
+                    android:textColor="@color/gray_3"
+                    android:textSize="16sp" />
             </LinearLayout>
 
             <Button
+                android:id="@+id/btn_avaliar_reserva"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -256,7 +229,7 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="Avaliar reserva"
                 android:textAllCaps="false"
-                android:onClick="rate"
+                android:onClick="goToRate"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 

@@ -15,8 +15,16 @@ import java.util.ArrayList;
 
 public class Room implements Serializable {
     private String nome, foto, descricao;
-    private int id, qtdHospede, qtdCamaSolteiro, qtdCamaCasal;
+    private int id, qtdHospede, qtdCamaSolteiro, qtdCamaCasal, reserva;
     private double valor;
+
+    public int getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(int reserva) {
+        this.reserva = reserva;
+    }
 
     public String getNome() {
         return nome;
@@ -123,6 +131,38 @@ public class Room implements Serializable {
         return null;
     }
 
+    public ArrayList<Rate> getComments() throws SQLException {
+        ConnectionHelper connectionHelper = new ConnectionHelper();
+        Connection connect = connectionHelper.connectionClass();
+
+        String query = String.format(
+                "SELECT NOTA_ACOMODACAO, " +
+                "OBSERVACAO FROM TB_QUARTO_TIPO " +
+                "INNER JOIN TB_QUARTO ON TB_QUARTO_TIPO.ID = TB_QUARTO.ID " +
+                "INNER JOIN TB_RESERVA ON TB_QUARTO.ID = TB_RESERVA.QUARTO " +
+                "INNER JOIN TB_AVALIACAO_RESERVA ON TB_AVALIACAO_RESERVA.ID = TB_RESERVA.ID " +
+                "WHERE TB_QUARTO_TIPO.ID = %s",
+                id
+        );
+
+        if (connect != null) {
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery(query);
+            ArrayList<Rate> rates = new ArrayList<>();
+
+            while(rs.next()) {
+                Rate rate = new Rate();
+
+                rate.setAcomodacao(rs.getString(1));
+                rate.setObservacao(rs.getString(2));
+                rates.add(rate);
+            }
+            return rates;
+        }
+
+        return null;
+    }
+
     public static ArrayList<Room> searchRooms(String search) throws SQLException {
         ConnectionHelper connectionHelper = new ConnectionHelper();
         Connection connect = connectionHelper.connectionClass();
@@ -168,7 +208,7 @@ public class Room implements Serializable {
         ConnectionHelper connectionHelper = new ConnectionHelper();
         Connection connect = connectionHelper.connectionClass();
 
-        String query = "SELECT TB_QUARTO_TIPO.ID, NOME, QTD_HOSPEDE,QTD_CAMA_SOLTEIRO,QTD_CAMA_CASAL,FOTO,DESCRICAO,VALOR FROM TB_QUARTO_TIPO INNER JOIN TB_RESERVA ON QUARTO = TB_QUARTO_TIPO.ID WHERE HOSPEDE = " + id;
+        String query = "SELECT TB_QUARTO_TIPO.ID, NOME, QTD_HOSPEDE,QTD_CAMA_SOLTEIRO,QTD_CAMA_CASAL,FOTO,DESCRICAO,VALOR,TB_RESERVA.ID FROM TB_QUARTO_TIPO INNER JOIN TB_RESERVA ON QUARTO = TB_QUARTO_TIPO.ID WHERE HOSPEDE = " + id;
 
         if (connect != null) {
             Statement st = connect.createStatement();
@@ -185,6 +225,7 @@ public class Room implements Serializable {
                 room.setFoto(rs.getString(6));
                 room.setDescricao(rs.getString(7));
                 room.setValor(rs.getDouble(8));
+                room.setReserva(rs.getInt(9));
 
                 Log.e("setId", "" + rs.getInt(1));
                 Log.e("setNome", "" + rs.getString(2));
@@ -194,6 +235,7 @@ public class Room implements Serializable {
                 Log.e("setFoto", "" + rs.getString(6));
                 Log.e("setDescricao", "" + rs.getString(7));
                 Log.e("setValor", "" + rs.getDouble(8));
+                Log.e("TB_RESERVA", "" + rs.getString(9));
 
                 //Log.e("id", rooms.toString());
 

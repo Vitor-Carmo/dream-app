@@ -5,34 +5,43 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dream.R;
+import com.example.dream.inteface.Execute;
 
 public class RateAlert{
     private final Activity activity;
     private AlertDialog dialog;
     private int rate = 0;
+    private final String title;
 
-    public RateAlert(Activity myActivity){
+    public RateAlert(Activity myActivity, String title){
         this.activity = myActivity;
+        this.title = title;
     }
 
     @SuppressLint("InflateParams")
     public void startLoadingDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this.activity);
         LayoutInflater inflater = this.activity.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.rate, null));
-        builder.setCancelable(false);
+        View v = inflater.inflate(R.layout.rate, null);
 
+        TextView titleView = v.findViewById(R.id.title);
+        titleView.setText(this.title);
+
+        builder.setView(v);
+        builder.setCancelable(false);
 
         this.dialog = builder.create();
         this.dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         this.dialog.show();
-
 
         setButtonsEventListeners();
         setStarEventListeners();
@@ -113,4 +122,7 @@ public class RateAlert{
         });
     }
 
+    public int getRate() {
+        return rate;
+    }
 }

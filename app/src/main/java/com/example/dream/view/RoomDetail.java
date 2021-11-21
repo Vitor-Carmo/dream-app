@@ -4,13 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -19,15 +15,15 @@ import com.example.dream.R;
 import com.example.dream.constant.DreamAppConstants;
 import com.example.dream.helpers.ImageLoadTask;
 import com.example.dream.helpers.MoneyFormat;
-import com.example.dream.model.Comment;
 import com.example.dream.model.CommentAdapter;
 import com.example.dream.model.Room;
-import com.example.dream.model.RoomAdapter;
+
+import java.sql.SQLException;
 
 public class RoomDetail extends AppCompatActivity {
     Room room;
     ImageView foto;
-    TextView nome, description, valor;
+    TextView nome, description, valor, qtd_cama_casal, qtd_cama_solteiros, qtd_hospedes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +37,18 @@ public class RoomDetail extends AppCompatActivity {
         nome = findViewById(R.id.nome);
         description = findViewById(R.id.description);
         valor = findViewById(R.id.valor);
-
+        qtd_cama_casal = findViewById(R.id.qtd_cama_casal);
+        qtd_cama_solteiros = findViewById(R.id.qtd_cama_solteiros);
+        qtd_hospedes = findViewById(R.id.qtd_hospedes);
         nome.setText(room.getNome());
         description.setText(room.getDescricao());
         valor.setText(MoneyFormat.format(room.getValor()));
         new ImageLoadTask(room.getFoto(), foto).execute();
-
+        qtd_cama_casal.setText(String.format("%s cama%s de casal", room.getQtdCamaCasal(), plural(room.getQtdCamaCasal())));
+        qtd_cama_solteiros.setText(String.format("%s cama%s de solteiro", room.getQtdCamaSolteiro(), plural(room.getQtdCamaSolteiro())));
+        qtd_hospedes.setText(String.format("Acomoda %s pessoa%s", room.getQtdHospede(), plural(room.getQtdHospede())));
         setComments();
     }
-
 
     public void goBack(View view) {
         finish();
@@ -63,11 +62,18 @@ public class RoomDetail extends AppCompatActivity {
     }
 
     private void setComments(){
-        ListView listview = findViewById(R.id.listview);
-        Comment comment = new Comment();
-        listview.setAdapter(new CommentAdapter(this, comment.comment, comment.stars));
+        try {
+            ListView listview = findViewById(R.id.listview);
+            listview.setAdapter(new CommentAdapter(this, room.getComments()));
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
+
+    private String plural(int qtd){
+        return qtd > 1 ? "s" : "";
+    }
     public void goToReservationSummary(View view) {
         Intent intent = new Intent(view.getContext(), ReservationSummary.class);
 

@@ -46,7 +46,7 @@ public class ReservationSummary extends AppCompatActivity {
     private SecurityPreferences mSecurityPreferences;
     private int numberGuests = 0;
     private MaskedEditText celular, cpf, rg, cep;
-    private EditText quarto, valor_total, nome, email, endereco, numero, bairro, complemento, date, cidade, estado;
+    private EditText quarto, valor_total, nome, email, endereco, numero, bairro, complemento, date, cidade, estado, qtd_hospedes, qtd_cama_solteiros, qtd_cama_casal;
     private ImageView foto;
     private Spinner tipo_pagamento;
     private TextView guests, limit;
@@ -72,6 +72,9 @@ public class ReservationSummary extends AppCompatActivity {
             foto = findViewById(R.id.foto);
             quarto = findViewById(R.id.quarto);
             valor_total = findViewById(R.id.valor_total);
+            qtd_hospedes = findViewById(R.id.qtd_hospedes);
+            qtd_cama_solteiros = findViewById(R.id.qtd_cama_solteiros);
+            qtd_cama_casal = findViewById(R.id.qtd_cama_casal);
             tipo_pagamento = findViewById(R.id.tipo_pagamento);
 
             guests = findViewById(R.id.guests);
@@ -90,10 +93,14 @@ public class ReservationSummary extends AppCompatActivity {
             date = findViewById(R.id.data_nascimento_btn);
             limit = findViewById(R.id.limit);
 
-            quarto.setText(room.getNome());
-            new ImageLoadTask(room.getFoto(), foto).execute();
-            valor_total.setText(MoneyFormat.format(room.getValor()));
 
+            quarto.setText(room.getNome());
+            valor_total.setText(MoneyFormat.format(room.getValor()));
+            qtd_hospedes.setText(String.valueOf(room.getQtdHospede()));
+            qtd_cama_casal.setText(String.valueOf(room.getQtdCamaCasal()));
+            qtd_cama_solteiros.setText(String.valueOf(room.getQtdCamaSolteiro()));
+
+            new ImageLoadTask(room.getFoto(), foto).execute();
             paymentTypeAdapter = new PaymentTypeAdapter(this, PaymentType.getPaymentsTypes());
             tipo_pagamento.setAdapter(paymentTypeAdapter);
 
@@ -119,6 +126,7 @@ public class ReservationSummary extends AppCompatActivity {
             complemento.setText(client.getComplemento());
             cidade.setText(client.getCidade());
             estado.setText(client.getEstado());
+
 
             guests.setText("0");
 
