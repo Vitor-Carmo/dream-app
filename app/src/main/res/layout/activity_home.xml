@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
-                android:hint="Pesquise por um Quarto"
+                android:hint="Pesquise por um quarto"
                 android:fontFamily="@font/roboto"
                 android:textSize="14sp"
                 android:paddingVertical="10dp"

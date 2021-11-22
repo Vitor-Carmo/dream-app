@@ -830,7 +830,7 @@
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/ic_background_button"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Pagamento"
+                android:text="Fazer reserva"
                 android:onClick="pay"
                 android:textAllCaps="false"
                 android:textColor="@color/white"

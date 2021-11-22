@@ -20,7 +20,7 @@ import com.example.dream.model.Room;
 
 import java.sql.SQLException;
 
-public class ReservationMadeDetail extends AppCompatActivity {
+public class ReservationDetail extends AppCompatActivity {
     private Room room;
     private Rate rate;
     private EditText quarto, qtd_hospedes, qtd_cama_solteiros, qtd_cama_casal, valor_total;

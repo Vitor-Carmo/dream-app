@@ -1,8 +1,10 @@
 package com.example.dream.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -197,10 +199,19 @@ public class ReservationSummary extends AppCompatActivity {
             reservation.setCompanions(companions);
             reservation.create();
 
-            Toast.makeText(this, "Reserva feita com sucesso!", Toast.LENGTH_LONG).show();
 
-            startActivity(new Intent(this, Home.class));
-            finish();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Reserva feita com sucesso!");
+            builder.setMessage("O pagamento da reserva deve ser efetuado no local");
+            builder.setCancelable(false);
+
+            builder.setPositiveButton("Ok, Entendi!",(dialog, which) -> {
+                startActivity(new Intent(this, Home.class));
+                finish();
+            });
+
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         } catch (Exception ex) {
             Log.e("Erro", ex.getMessage());
             ex.printStackTrace();

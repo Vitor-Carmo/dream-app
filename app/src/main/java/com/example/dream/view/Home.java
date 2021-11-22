@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.dream.R;
 import com.example.dream.constant.DreamAppConstants;
@@ -29,7 +28,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void goToReservations(View view) {
-        startActivity(new Intent(view.getContext(), Reservations.class));
+        startActivity(new Intent(view.getContext(), Rooms.class));
     }
 
     public void goToChangeRegistration(View view) {
@@ -41,7 +40,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void goToReservationsMade(View view) {
-        startActivity(new Intent(view.getContext(), ReservationsMade.class));
+        startActivity(new Intent(view.getContext(), Reservations.class));
     }
 
     public void goToSearchRoom(View view) {

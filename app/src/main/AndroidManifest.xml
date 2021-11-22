@@ -15,11 +15,11 @@
         android:theme="@style/Theme.Dream">
         <activity android:name=".view.RateActivity" />
         <activity android:name=".view.SearchRoom" />
-        <activity android:name=".view.ReservationMadeDetail" />
-        <activity android:name=".view.ReservationsMade" />
+        <activity android:name=".view.ReservationDetail" />
+        <activity android:name=".view.Reservations" />
         <activity android:name=".view.ReservationSummary" />
         <activity android:name=".view.RoomDetail" />
-        <activity android:name=".view.Reservations" />
+        <activity android:name=".view.Rooms" />
         <activity android:name=".view.AboutUs" />
         <activity android:name=".view.Home">
             <intent-filter>
