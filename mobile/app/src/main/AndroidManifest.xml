@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dream">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:windowSoftInputMode="adjustResize|stateVisible"
+        android:roundIcon="@mipmap/ic_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Dream">
+        <activity android:name=".view.RateActivity" />
+        <activity android:name=".view.SearchRoom" />
+        <activity android:name=".view.ReservationDetail" />
+        <activity android:name=".view.Reservations" />
+        <activity android:name=".view.ReservationSummary" />
+        <activity android:name=".view.RoomDetail" />
+        <activity android:name=".view.Rooms" />
+        <activity android:name=".view.AboutUs" />
+        <activity android:name=".view.Home">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.Login" />
+        <activity android:name=".view.ChangePassword" />
+        <activity android:name=".view.ChangeRegistration" />
+        <activity android:name=".view.Register" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

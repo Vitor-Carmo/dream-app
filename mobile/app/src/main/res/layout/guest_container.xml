@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:paddingBottom="15dp"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/ic_background_input_guest_top"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="Digite o nome"
+        android:inputType="textPersonName"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/gray_3"
+        android:textColorHint="@color/gray_4"
+        android:textSize="16sp" />
+
+    <br.com.sapereaude.maskedEditText.MaskedEditText
+        android:id="@+id/cpf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_background_input_guest_bottom"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="99999999999"
+        android:inputType="number"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/gray_3"
+        android:textColorHint="@color/gray_4"
+        android:textSize="16sp"
+        mask:allowed_chars="1234567890"
+        mask:mask="###.###.###-##"
+    />
+</LinearLayout>

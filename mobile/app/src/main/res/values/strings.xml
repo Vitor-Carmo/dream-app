@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Dream</string>
+    <string name="date_format">%1$d/%2$d/%3$d</string>
+    <string name="about_us">
+        O Hotel Dream é um hotel de tradição na região, estando no mercado há mais de 20 anos, sendo administrado por um casal.<br />
+        O hotel disponibiliza quartos luxuosos e standars.<br />
+        Todos os quartos tem acesso Wi-FI gratuito.
+    </string>
+    <string name="goal">
+        Fornecer quartos de alta qualidade de tipos variados, para todos os hóspedes
+    </string>
+    <string name="vision">
+        Satisfazer nossos clientes,<br />
+        fornecendo a hospedagem que ele procura
+    </string>
+    <string name="values">
+        Competência, transparência, efetividade e ética
+    </string>
+    <string name="phones_about_us">
+        <b>Tel:</b> (00) 0000-0000 (00) <b>Cel:</b> 00000-0000
+    </string>
+    <string name="email_about_us">
+        contato@hoteldream.com.br
+    </string>
+
+    <string-array name="grades">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+</resources>
